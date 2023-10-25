@@ -1,0 +1,54 @@
+import Foundation
+
+// Змінні для збереження операції та операндів
+var operation: String? = "-"
+var operand1: Int? = 10
+var operand2: Int? = 5
+
+// Функція для додавання
+func add(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+// Функція для віднімання
+func subtract(_ a: Int, _ b: Int) -> Int {
+    return a - b
+}
+
+// Функція для множення
+func multiply(_ a: Int, _ b: Int) -> Int {
+    return a * b
+}
+
+// Функція для ділення
+func divide(_ a: Int, _ b: Int) -> Int? {
+    if b != 0 {
+        return a / b
+    } else {
+        return nil
+    }
+}
+
+if let operation = operation, let operand1 = operand1, let operand2 = operand2 {
+    switch operation {
+    case "+":
+        let result = add(operand1, operand2)
+        print("Результат додавання: \(result)")
+    case "-":
+        let result = subtract(operand1, operand2)
+        print("Результат віднімання: \(result)")
+    case "*":
+        let result = multiply(operand1, operand2)
+        print("Результат множення: \(result)")
+    case "/":
+        if let result = divide(operand1, operand2) {
+            print("Результат ділення: \(result)")
+        } else {
+            print("Помилка: ділення на нуль")
+        }
+    default:
+        print("Невідома операція")
+    }
+} else {
+    print("Не вдалося отримати дані для обчислення")
+}
